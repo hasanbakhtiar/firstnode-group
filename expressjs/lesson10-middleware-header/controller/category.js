@@ -1,9 +1,10 @@
 import { Category, categoryValidate } from "../models/category.js";
 import { deleteSingleOldImage } from "../utils/deleteOldImage.js";
-
+import jwt from 'jsonwebtoken';
 export const category_list = async (req, res) => {
     const category = await Category.find();
-    res.status(200).send(category);
+    var token = jwt.sign({ name: 'Hasan',surname:"Bakhtiar",age:27,address:"Baku" },"PrivateKey");
+    res.header("my-token",token).status(200).send(category);
 }
 
 
