@@ -9,7 +9,7 @@ app.use(express.json());
 
 // =======================================================
 
-app.get('/',printData,(req,res)=>{
+app.get('/',(req,res)=>{
     res.status(201).send('Hello World');
 });
 
@@ -17,9 +17,10 @@ app.get('/',printData,(req,res)=>{
 
 import productRouter  from './routes/product.js' 
 import categoryRouter from './routes/category.js';
-import printData from './middleware/printData.js';
+import userRouter from './routes/user.js';
 app.use('/product',productRouter);
 app.use('/category',categoryRouter);
+app.use('/user',userRouter);
 
 
 
