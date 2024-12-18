@@ -40,8 +40,20 @@ export const userValidate = (user)=>{
 }
 
 
+
+export const loginValidate=(user)=>{
+    const schema = new Joi.object({
+        email:Joi.string().min(8).max(50).required(),
+        password:Joi.string().min(8).max(50).required()
+    })
+    return schema.validate(user);
+}
+
+
+
+
 userShema.methods.createAuthToken = function(){
-    const decodedToken = jwt.sign({fullname:this.fullname},"jwtPrivateKey");
+    const decodedToken = jwt.sign({fullname:this.fullname, role:this.role},"jwtPrivateKey");
     return decodedToken;
 }
 

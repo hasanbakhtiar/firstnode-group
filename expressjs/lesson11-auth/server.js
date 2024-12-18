@@ -18,7 +18,16 @@ app.get('/',(req,res)=>{
 import productRouter  from './routes/product.js' 
 import categoryRouter from './routes/category.js';
 import userRouter from './routes/user.js';
+import authRouter from './routes/auth.js';
+import isadmin from './middleware/isadmin.js';
+import auth from './middleware/auth.js';
+
+
+app.use('/auth',authRouter);
+
+app.use(auth);
 app.use('/product',productRouter);
+app.use(isadmin);
 app.use('/category',categoryRouter);
 app.use('/user',userRouter);
 

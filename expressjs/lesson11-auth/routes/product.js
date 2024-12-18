@@ -1,6 +1,7 @@
 import express from 'express';
 import { product_add, product_all_delete, product_delete, product_edit, product_list, single_product } from '../controller/product.js';
 import upload from '../middleware/uploadFile.js';
+import auth from '../middleware/auth.js';
 const router = express.Router();
 
 router.get('/', product_list);
