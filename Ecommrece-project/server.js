@@ -9,8 +9,21 @@ app.use(cors());
 app.use(express.json());
 // end middleware
 
+// clinet routes start
 const surfaceRoute = require('./routers/client/surface');
 app.use('/',surfaceRoute);
+// clinet routes end
+
+
+// admin routes start
+const adProductRoute = require('./routers/admin/product');
+const adCategoryRoute = require('./routers/admin/category');
+
+app.use('/ad/product',adProductRoute);
+app.use('/ad/category',adCategoryRoute);
+// admin routes end
+
+
 
 
 

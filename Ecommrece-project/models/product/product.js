@@ -3,7 +3,7 @@ const {default:mongoose, Schema} = require('mongoose');
 
 const productSchema = Schema({
     row: Number,
-    coverImg: String,
+    coverImage: String,
     images: [String],
     title: String,
     price: Number,
@@ -22,14 +22,14 @@ const productSchema = Schema({
 const productValidate = (product) => {
     const schema = new Joi.object({
         row: Joi.number(),
-        coverImg: Joi.string(),
+        coverImage: Joi.string(),
         images: Joi.array().items(Joi.string()),
         title: Joi.string(),
         price: Joi.number(),
         discount: Joi.number(),
         desc: Joi.string(),
         active:Joi.boolean(),
-        category: Joi.string(),
+        subcategory: Joi.string(),
     })
     return schema.validate(product);
 };

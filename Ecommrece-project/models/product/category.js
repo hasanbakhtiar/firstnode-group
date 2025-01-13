@@ -1,4 +1,4 @@
-const Joi = require("Joi");
+const Joi = require("joi");
 const {default:mongoose, Schema} = require('mongoose');
 
 const categorySchema = Schema({
